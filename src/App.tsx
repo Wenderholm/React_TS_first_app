@@ -18,6 +18,7 @@ export default function App() {
 
   function handleAddGoal(goal: string, summary: string) {
     setGoals((prevGoals) => {
+      // newGoal: CourseGoal oznacza, ze newGoal jest obiektem typu CourseGoal
       const newGoal: CourseGoal = {
         id: Math.random(),
         title: goal,
