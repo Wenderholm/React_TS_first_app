@@ -24,13 +24,6 @@ Course Goals Manager to nowoczesna aplikacja webowa, która pozwala użytkowniko
 
 Aplikacja wykorzystuje najnowsze technologie frontendowe i jest w pełni typowana dzięki TypeScript.
 
-## 🖼️ Zrzuty Ekranu
-
-<div align="center">
-  <img src="./docs/screenshot1.png" alt="Główna strona aplikacji" width="600">
-  <br>
-  <em>Główny interfejs aplikacji z formularzem dodawania celów</em>
-</div>
 
 ## 🚀 Funkcjonalności
 
@@ -108,48 +101,6 @@ src/
 └── index.css               # Globalne style CSS
 ```
 
-## 🎨 Style i Design
-
-Aplikacja wykorzystuje nowoczesny design system z:
-
-- **Kolorystyka**: Ciemny motyw z akcentami w kolorze żółtym
-- **Typografia**: Google Fonts - Poppins
-- **Layout**: CSS Grid i Flexbox
-- **Responsywność**: Mobile-first approach
-
-### Główne kolory
-
-- `#3a4346` - Główny kolor tła
-- `#f7e596` - Kolor akcentowy (przyciski, tytuły)
-- `#f0f6f8` - Kolor tekstu
-- `#475357` - Kolor kart
-
-## 📜 Dostępne Skrypty
-
-| Komenda           | Opis                                 |
-| ----------------- | ------------------------------------ |
-| `npm run dev`     | Uruchamia serwer deweloperski        |
-| `npm run build`   | Buduje aplikację produkcyjną         |
-| `npm run preview` | Podgląd buildu produkcyjnego         |
-| `npm run lint`    | Sprawdza kod pod kątem błędów ESLint |
-
-## 🔧 Konfiguracja TypeScript
-
-Projekt używa strict TypeScript configuration z:
-
-- Pełną kontrolą typów
-- Interfejsami dla props komponentów
-- Type safety dla state management
-
-### Przykład typu
-
-```typescript
-export type CourseGoal = {
-  title: string;
-  description: string;
-  id: number;
-};
-```
 
 ## 🤝 Rozwój Projektu
 
@@ -161,54 +112,11 @@ export type CourseGoal = {
 - [ ] Dark/Light mode toggle
 - [ ] Drag & Drop reordering
 
-### Jak kontrybuować
-
-1. Fork projektu
-2. Stwórz feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit zmiany (`git commit -m 'Add some AmazingFeature'`)
-4. Push do branch (`git push origin feature/AmazingFeature`)
-5. Otwórz Pull Request
-
-## 📄 Licencja
-
-Ten projekt jest licencjonowany na licencji MIT - zobacz plik [LICENSE](LICENSE) dla szczegółów.
-
 ## 👨‍💻 Autor
 
 **Przemysław Wenderholm**
 
 - GitHub: [@Wenderholm](https://github.com/Wenderholm)
-
----
-
-<div align="center">
-  <p>⭐ Jeśli podoba Ci się ten projekt, zostaw gwiazdkę! ⭐</p>
-</div>
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-globalIgnores(['dist']),
-{
-files: ['**/*.{ts,tsx}'],
-extends: [
-// Other configs...
-// Enable lint rules for React
-reactX.configs['recommended-typescript'],
-// Enable lint rules for React DOM
-reactDom.configs.recommended,
-],
-languageOptions: {
-parserOptions: {
-project: ['./tsconfig.node.json', './tsconfig.app.json'],
-tsconfigRootDir: import.meta.dirname,
-},
-// other options...
-},
-},
-])
-
 ```
 
 ```
