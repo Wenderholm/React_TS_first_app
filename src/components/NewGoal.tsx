@@ -1,21 +1,26 @@
 import { useRef, type FormEvent } from "react";
+import { useGoals } from "../context/GoalsContext";
 
-type NewGoalProps = {
-  onAddGoal: (goal: string, summary: string) => void;
-};
-
-export default function NewGoal({ onAddGoal }: NewGoalProps) {
+export default function NewGoal() {
+  // Pobieramy funkcję addGoal z Context, aby móc dodać nowy cel do listy
+  const { addGoal } = useGoals();
+  // Tworzymy referencje do pól formularza, aby później pobrać ich wartości
+  // useRef pozwala nam stworzyć "referencję" do elementu DOM, dzięki czemu możemy bezpośrednio odczytać jego wartość
+  // HTMLInputElement to typ dla elementów <input>, dzięki temu TypeScript wie, jakie właściwości i metody są dostępne na tych elementach
   const goal = useRef<HTMLInputElement>(null);
   const summary = useRef<HTMLInputElement>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
+    // Pobieramy wartości z pól formularza za pomocą referencji
+    // goal.current i summary.current mogą być null, dlatego używamy operatora
+    // non-null assertion (!) za current aby powiedzieć TypeScriptowi, że na pewno nie będą null w tym momencie
     const enteredGoal = goal.current!.value;
     const enteredSummary = summary.current!.value;
 
     event.currentTarget.reset();
-    onAddGoal(enteredGoal, enteredSummary);
+    // wywołujemy funkcję addGoal z Context, przekazując tytuł i opis nowego celu
+    addGoal(enteredGoal, enteredSummary);
   }
 
   return (

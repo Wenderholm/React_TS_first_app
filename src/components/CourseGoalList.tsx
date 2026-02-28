@@ -1,17 +1,11 @@
 import CourseGoal from "./CourseGoal.tsx";
-import { type CourseGoal as CGoal } from "../App.tsx";
 import InfoBox from "./InfoBox.tsx";
 import { ReactNode } from "react";
+import { useGoals } from "../context/GoalsContext";
 
-type CourseGoalListProps = {
-  goals: CGoal[];
-  onDeleteGoal: (id: number) => void;
-};
+export default function CourseGoalList() {
+  const { goals } = useGoals(); // Pobieramy goals z Context
 
-export default function CourseGoalList({
-  goals,
-  onDeleteGoal,
-}: CourseGoalListProps) {
   // jezeli nie ma celow to wyswietl InfoBox i nic wiecej nie renderuj
   if (goals.length === 0) {
     return (
@@ -36,9 +30,7 @@ export default function CourseGoalList({
       <ul>
         {goals.map((goal) => (
           <li key={goal.id}>
-            <CourseGoal id={goal.id} title={goal.title} onDelete={onDeleteGoal}>
-              <p>{goal.description}</p>
-            </CourseGoal>
+            <CourseGoal goal={goal} />
           </li>
         ))}
       </ul>
